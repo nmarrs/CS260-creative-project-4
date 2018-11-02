@@ -69,4 +69,11 @@ router.get('/cardata', function(req, res) {
     res.send(testCarData);
 });
 
+router.post('/cardata', function(req, res) {
+    console.log("In CarData Post");
+    testCarData = req.body;
+    res.send(testCarData);
+    res.end(`{"success" : "Updated Successfully", "status" : 200, "data" : ${testCarData} }`);
+});
+
 module.exports = router;

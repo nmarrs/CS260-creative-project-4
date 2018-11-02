@@ -60,6 +60,16 @@ var testCarData = {
     }
 }
 
+var testBlockchain = {
+    blocks: [{
+        hash: "05cb71f35c3115a138a8f975bc946f5a470f7850570860c0662bc0e7ce513377",
+        index: 0,
+        nonce: 0,
+        previousHash: "0000000000000000",
+        transactions: []
+    }]
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
@@ -72,8 +82,17 @@ router.get('/cardata', function(req, res) {
 router.post('/cardata', function(req, res) {
     console.log("In CarData Post");
     testCarData = req.body;
-    res.send(testCarData);
-    res.end(`{"success" : "Updated Successfully", "status" : 200, "data" : ${testCarData} }`);
+    res.end(`{"success" : "Updated Successfully", "status" : 200`);
 });
+
+// router.get('/blockchain', function(req, res) {
+            //     res.send(testBlockchain);
+            // });
+
+            // router.post('/blockchain', function(req, res) {
+            //     console.log("In Blockchain Post");
+            //     testBlockchain = req.body;
+            //     res.end(`{"success" : "Updated Successfully", "status" : 200`);
+            // });
 
 module.exports = router;
